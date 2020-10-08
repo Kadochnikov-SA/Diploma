@@ -15,5 +15,10 @@ public class Application {
 
     SpringApplication.run(Application.class, args);
 
+
+    // TODO 1. Тестирование контроллеров. Mockito, JUnit.
+    // TODO 2. Разобраться с Travis
+    // TODO 3. Миграция БД.
+
     }
 }

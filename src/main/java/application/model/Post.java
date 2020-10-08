@@ -136,4 +136,36 @@ public class Post {
     public void setViewCount(int viewCount) {
         this.viewCount = viewCount;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<PostVote> getPostVotes() {
+        return postVotes;
+    }
+
+    public void setPostVotes(List<PostVote> postVotes) {
+        this.postVotes = postVotes;
+    }
+
+    public List<PostComment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<PostComment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
 }
