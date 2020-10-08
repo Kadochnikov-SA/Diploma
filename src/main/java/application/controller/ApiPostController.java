@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.dto.post.request.PostRequestDTO;
 import application.dto.post.response.PostResponseDTO;
 import application.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,12 @@ public class ApiPostController {
         this.postService = postService;
     }
 
-    @GetMapping(value = "/api/post{offset}{limit}{mode}")
-    public PostResponseDTO getPosts(@PathVariable(name = "offset") String offset,
-                                    @PathVariable(name = "limit") String limit,
-                                    @PathVariable(name = "mode") String mode) {
+    @GetMapping(value = "/api/post")
+    @ResponseBody
+    public PostResponseDTO getPosts(@RequestParam Integer offset,
+                                    @RequestParam Integer limit,
+                                    @RequestParam String mode) {
+        PostRequestDTO postRequestDTO = new PostRequestDTO(offset,limit,mode);
         return postService.getPosts();
     }
 }
