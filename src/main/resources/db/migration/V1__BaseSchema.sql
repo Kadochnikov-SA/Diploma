@@ -63,3 +63,15 @@ create table if not exists users
     reg_time     datetime(6),
     primary key (id)
 );
+create table post_comments
+(
+    id        integer      not null,
+    parent_id INT,
+    post_id   INT          not null,
+    text      varchar(255) not null,
+    time      datetime(6)  not null,
+    user_id   INT          not null,
+    primary key (id)
+);
+
+

@@ -1,8 +1,9 @@
 package application.dto.post.response;
 
 import application.dto.user.response.UserDTO;
+import application.model.Post;
 
-public class PostDTO{
+public class PostDTO {
 
     private int id;
     private long timestamp;
@@ -26,7 +27,20 @@ public class PostDTO{
         this.viewCount = viewCount;
     }
 
-    public PostDTO() {
+    public PostDTO(Post post) {
+        this.id = post.getId();
+        this.timestamp = (post.getTime().getTime() / 1000);
+        this.user = new UserDTO(post.getUser());
+        this.title = post.getTitle();
+        this.announce = post.getText();
+        this.likeCount = (int) post.getPostVotes()
+                .stream()
+                .filter(postVote -> postVote.getValue() == 1).count();
+        this.dislikeCount = (int) post.getPostVotes()
+                .stream()
+                .filter(postVote -> postVote.getValue() == -1).count();
+        this.commentCount = post.getComments().size();
+        this.viewCount = post.getViewCount();
     }
 
     public int getId() {

@@ -20,9 +20,9 @@ public class ApiPostController {
 
     @GetMapping(value = "/api/post")
     @ResponseBody
-    public PostResponseDTO getPosts(@RequestParam Integer offset,
-                                    @RequestParam Integer limit,
-                                    @RequestParam String mode) {
+    public PostResponseDTO getPosts(@RequestParam(required = false, defaultValue = "0") Integer offset,
+                                    @RequestParam(required = false, defaultValue = "10") Integer limit,
+                                    @RequestParam(required = false,defaultValue = "recent") String mode) {
         PostRequestDTO postRequestDTO = new PostRequestDTO(offset,limit,mode);
         return postService.getPosts();
     }

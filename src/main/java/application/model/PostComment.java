@@ -1,6 +1,7 @@
 package application.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -19,8 +20,7 @@ public class PostComment {
     private int id;
 
     @Column(name = "parent_id", columnDefinition = "INT")
-    private int parentId;
-    // комментарий на который оставлен этот комментарий
+    private Integer parentId;
 
     @NotNull
     @Column(name = "post_id", columnDefinition = "INT", updatable = false, insertable = false)

@@ -4,13 +4,20 @@ spring:
     username: root
     password:
     url: jdbc:mysql://localhost:3306/blog?serverTimezone=UTC
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: create
+
+
+
 
   flyway:
     url: jdbc:mysql://localhost:3306/blog
     baseline-version: 1
     password:
     user: root
-    baseline-on-migrate: false
+    baseline-on-migrate: true
 
 #general blog data
 blog.title: DevPub

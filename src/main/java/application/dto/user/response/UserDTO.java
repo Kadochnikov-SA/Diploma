@@ -1,5 +1,7 @@
 package application.dto.user.response;
 
+import application.model.User;
+
 public class UserDTO {
 
     private int id;
@@ -11,6 +13,11 @@ public class UserDTO {
     }
 
     public UserDTO() {
+    }
+
+    public UserDTO(User user) {
+        this.id = user.getId();
+        this.name = user.getName();
     }
 
     public int getId() {
