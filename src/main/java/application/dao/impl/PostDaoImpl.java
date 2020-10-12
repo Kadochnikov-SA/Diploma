@@ -4,11 +4,10 @@ import application.dao.PostDao;
 import application.model.Post;
 import application.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 @Component
 public class PostDaoImpl implements PostDao {
@@ -21,13 +20,18 @@ public class PostDaoImpl implements PostDao {
     }
 
     @Override
-    public List<Post> getAll() {
-        Iterator<Post> postIterator = postRepository.findAll().iterator();
-        List<Post> posts = new ArrayList<>();
-        while (postIterator.hasNext()) {
-            posts.add(postIterator.next());
-        }
-        return posts;
+    public Page<Post> findAllOrderByRecent(Pageable pageable) {
+        return postRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Post> findAllOrderByPopular(Pageable pageable) {
+        return postRepository.findAllOrderByComments(pageable);
+    }
+
+    @Override
+    public Page<Post> findAllOrderByLikes(Pageable pageable) {
+        return postRepository.findAllOrderByLikes(pageable);
     }
 
 }

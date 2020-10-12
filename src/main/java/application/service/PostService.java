@@ -2,17 +2,21 @@ package application.service;
 
 
 import application.dao.PostDao;
+import application.dto.post.request.PostRequestDTO;
 import application.dto.post.response.PostDTO;
 import application.dto.post.response.PostResponseDTO;
-import application.dto.user.response.UserDTO;
+import application.model.ModerationStatus;
 import application.model.Post;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @Service
 public class PostService {
@@ -25,14 +29,22 @@ public class PostService {
         this.postDao = postDao;
     }
 
-    public PostResponseDTO getPosts() {
-        return toPostResponseDto(postDao.getAll());
-    }
-
-
-    private PostResponseDTO toPostResponseDto(List<Post> posts) {
-        List<PostDTO> postDTOList = posts.stream()
-                .map(PostDTO::new).collect(Collectors.toList());
-        return new PostResponseDTO(postDTOList.size(), postDTOList);
+    public PostResponseDTO getPosts(PostRequestDTO requestDTO) {
+        if (requestDTO.getMode().equals("recent") || requestDTO.getMode().equals("early")) {
+            Pageable pageable = PageRequest.of(requestDTO.getOffset(), requestDTO.getLimit(),
+                    (requestDTO.getMode().equals("recent") ? Sort.by("time").descending() : Sort.by("time").ascending()));
+            List<Post> posts = postDao.findAllOrderByRecent(pageable).getContent();
+            return new PostResponseDTO(posts.size(), posts.stream().filter(post ->
+                            post.getModerationStatus() == ModerationStatus.ACCEPTED).map(PostDTO::new).collect(Collectors.toList()));
+        } else {
+            Pageable pageable = PageRequest.of(requestDTO.getOffset(), requestDTO.getLimit());
+            List<Post> posts;
+            if (requestDTO.getMode().equals("popular")) {
+                posts = postDao.findAllOrderByPopular(pageable).getContent();
+            } else {
+                posts = postDao.findAllOrderByLikes(pageable).getContent();
+            }
+            return new PostResponseDTO(posts.size(), posts.stream().map(PostDTO::new).collect(Collectors.toList()));
+        }
     }
 }

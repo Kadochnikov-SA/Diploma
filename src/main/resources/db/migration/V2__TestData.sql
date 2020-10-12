@@ -23,12 +23,12 @@ VALUES ('10', 'klandry@gmail.com', '0', 'Klandry', 'MysecretPasswor', 'MysecretP
 
 # adding posts
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ('1', '1', 'NEW', '1',
+VALUES ('1', '1', 'ACCEPTED', '1',
         'Excepteur sint occaecat cupidatat non proident, unde omnis iste natus error sitvoluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis etquasi architecto beatae vitae dicta sunt, explicabo! At vero eos et accusamus et iusto odio dignissimos ducimus,quis nostrum exercitationem ullam corporis suscipit laboriosam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepeeveniet, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quovoluptas nulla pariatur. Ut enim ad minima veniam,...',
         '2020-09-13 09:28:40', 'About Fish', '2', '7');
 
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ('2', '1', 'NEW', '1', 'Denoting yourself wicket account projection.
+VALUES ('2', '1', 'ACCEPTED', '1', 'Denoting yourself wicket account projection.
 
 Give provided wise questions keeps dare placing turned five. Narrow alteration calling occasional happen polite. Terms conveying repair feet tiled invitation preserved chiefly charm. My trifling allowance asked existence. Blind allow more fruit weeks sent room both time roused.
 
@@ -40,7 +40,7 @@ Announcing ferrars passed introduced find furnished hundred attempted most marga
         '2020-08-14 12:53:40', 'Post Title', '2', '3');
 
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ('3', '1', 'NEW', '1', 'Discretion cottage body required.
+VALUES ('3', '1', 'ACCEPTED', '1', 'Discretion cottage body required.
 
 Disposing introduced any sweetness estimating entered goodness direct described. Bred manner blush quit adieus tiled. Mother arise point looking middleton believing parish. Sir and taken are tended conduct arranging be. Cheerful neat boy rooms.
 
@@ -48,7 +48,7 @@ Eyes visitor him denote applauded windows surrounded neat ourselves lasting conf
         '2020-08-21 17:04:40', 'Discretion cottage body required', '2', '3');
 
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ('4', '1', 'NEW', '1', 'Excuse related breakfast.
+VALUES ('4', '1', 'ACCEPTED', '1', 'Excuse related breakfast.
 
 Dashwood cousin acuteness. Feelings improve females shade delight defective sister thought she arranging. Fond dare moment home removed party. Observe pulled remain dispatched down instrument beloved tiled indulgence are. Chiefly respect attention cousins limits towards stuff front debating coming viewing mile.
 
@@ -56,7 +56,7 @@ Wound feeling wrong engrossed ample cause sympathize whether advantage would wan
         '2020-07-01 01:33:40', 'Excuse related breakfast', '3', '11');
 
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ('5', '1', 'NEW', '1', 'Meant believed unsatiable hung girl attempt.
+VALUES ('5', '1', 'ACCEPTED', '1', 'Meant believed unsatiable hung girl attempt.
 
 Waited he entire kindness cheered thing cordial blessing. Front wandered four inhabit books estate gentleman abilities yourself resolved shew private truth disposing. Hope late just course. Otherwise departure visitor hunted disposal. Hill extent pasture bachelor.
 
@@ -68,7 +68,7 @@ Had purse pain sudden held hoped demands finished square found resolve. Conceale
         '2020-09-04 21:47:40', 'Meant believed unsatiable hung girl attempt', '4', '2');
 
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ('6', '1', 'NEW', '1', 'Humoured letter agreement dear from missed paid come minuter delighted late intention.
+VALUES ('6', '1', 'ACCEPTED', '1', 'Humoured letter agreement dear from missed paid come minuter delighted late intention.
 
 Neat celebrated whatever gone exposed hand unaffected use nearer feet scarcely. Then hold justice truth everything remainder woman steepest far solid four sing jointure. Related blind cease were avoid do tears call solid like ferrars. Enable loud wishing little simplicity greatest sportsmen case six situation fail devonshire colonel girl. Expenses shade unaffected wishes perfectly say distrusts abode calling by moonlight boisterous.
 
@@ -78,7 +78,7 @@ Attended pleased style feebly letter wise observe sent suitable. ', '2020-09-23 
         'Humoured letter agreement dear from missed paid come minuter delighted late intention', '4', '16');
 
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ('7', '1', 'NEW', '1', 'Inhabit subjects sight acceptance forth said.
+VALUES ('7', '1', 'ACCEPTED', '1', 'Inhabit subjects sight acceptance forth said.
 
 Friendly should yourself sorry drew sitting convinced him green related dearest arranging jokes desire pleasure merry. Northward child cousins natural remarkably prevailed. Along other call offending warrant doors companions interest wrong itself perceived on unwilling sons lovers esteems. Equally beloved convinced suitable tell. Preferred suspected favourite weddings moderate often screened size produce outweigh dear easy saved relation yourself weather perfectly.
 
@@ -90,7 +90,7 @@ Yet company your pretended promotion wishes wisdom. Law removal daughter set spo
         '2020-09-07 12:01:40', 'Inhabit subjects sight acceptance forth said', '4', '8');
 
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ( '8', '1', 'NEW', '1', 'Estate cheerful large money scarcely continue linen high seeing.
+VALUES ( '8', '1', 'ACCEPTED', '1', 'Estate cheerful large money scarcely continue linen high seeing.
 
 Noisy proceed dine am. Limited met do. Uncommonly wrote charm then manners lively wisdom address seemed behaved could determine old lively greatest form. Added offending supported around dearest comfort letter wisdom general produce discourse use. Afraid early front side consisted total burst near at.
 
@@ -102,7 +102,7 @@ Be left appear contempt regular words saw six. If forbade whatever entrance draw
        , '2020-07-07 04:08:40', 'Estate cheerful large money scarcely continue linen high seeing', '6', '9');
 
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ('9', '1', 'NEW', '1', 'Travelling extent forbade hopes sympathize exquisite blush.
+VALUES ('9', '1', 'ACCEPTED', '1', 'Travelling extent forbade hopes sympathize exquisite blush.
 
 Three very husband its truth proceed chamber disposal judgment so covered ye. Reasonably attending attempt unable nature little imprudence sang why voice basket merry. Entreaties something quitting defective parlors months defective furnished stairs taken. Before why ecstatic longer too so loud words sweetness. Years window easy remaining.
 
@@ -112,7 +112,7 @@ Resolving plate sufficient position arrival into margaret one fifteen behaved st
         '2020-10-01 14:37:40', 'Travelling extent forbade hopes sympathize exquisite blush', '4', '18');
 
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ('10', '1', 'NEW', '1', 'Seen belonging allowance laughing guest.
+VALUES ('10', '1', 'ACCEPTED', '1', 'Seen belonging allowance laughing guest.
 
 Summer incommode gravity introduced friendly strongly beyond mr friendly good. Resolved account because travelling spoil arrival. Offices attempt laughing. Given waited picture law should body furnished collected books. Wound friends unpacked two denied praise mother evil venture speedily moonlight heard body disposing partiality.
 
@@ -124,7 +124,7 @@ Cordially roused calling father observe collected music longer purse. Likely wee
         '2020-06-27 18:25:40', 'Seen belonging allowance laughing guest', '7', '8');
 
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ('11', '1', 'NEW', '1', 'Went time resolution unable merits.
+VALUES ('11', '1', 'ACCEPTED', '1', 'Went time resolution unable merits.
 
 Which hopes perfectly attention hastily right often produce agreeable northward. Five declared humoured denote last ever sportsman remaining limited. Breakfast hearted collecting differed precaution decay. Paid ever formerly thoroughly wisdom. Demands my hill why replying full request subjects started wished him plan they began.
 
@@ -134,7 +134,7 @@ Effects offended village sold beauty made can sensible hunted on resolve parish 
 ', '2020-08-25 22:15:40', 'Went time resolution unable merits', '2', '12');
 
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ('12', '1', 'NEW', '1', 'Effects hand carriage endeavor branched distant.
+VALUES ('12', '1', 'ACCEPTED', '1', 'Effects hand carriage endeavor branched distant.
 
 Resolving answered under suffering size produce anxious miss mean overcame china trifling suitable shutters saved. Ladyship earnestly help visitor estimable landlord worthy  smart. Valley table children effect handsome figure resources sociable burst that lively death allowance wicket. Words elderly court along enabled through appearance sometimes ask five pure son. Observe furnished summer five understood day.
 
@@ -146,7 +146,7 @@ Friends cordial whose perfectly wandered engaged company another oppose met long
         '2020-09-24 16:20:00', 'Effects hand carriage endeavor branched distant', '2', '14');
 
 INSERT INTO blog.posts (id, is_active, moderation_status, moderator_id, text, time, title, user_id, view_count)
-VALUES ('13', '1', 'NEW', '1', 'Soon dwelling sent from giving.
+VALUES ('13', '1', 'ACCEPTED', '1', 'Soon dwelling sent from giving.
 
 Make true if. Saw charmed numerous uncommonly relation hearted or balls against settled sake debating feelings lain. Savings dejection shortly called mind honoured times defective stronger temper advantage. Distance over thought order remainder ability reasonable maids evening it journey additions letter mistress smart. Give described affection must numerous kept so uncommonly day lively rooms stand formal enjoyed seeing.
 
