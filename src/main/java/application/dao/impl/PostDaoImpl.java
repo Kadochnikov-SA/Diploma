@@ -34,4 +34,19 @@ public class PostDaoImpl implements PostDao {
         return postRepository.findAllOrderByLikes(pageable);
     }
 
+    @Override
+    public Page<Post> findAllLikeSearchQuery(Pageable pageable, String searchQuery) {
+        return postRepository.findAllContainingSearchQuery(pageable, searchQuery);
+    }
+
+    @Override
+    public Page<Post> findAll(Pageable pageable) {
+        return postRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Post> findAllByTag(Pageable pageable, String tag) {
+        return postRepository.findAllByTag(pageable, tag);
+    }
+
 }

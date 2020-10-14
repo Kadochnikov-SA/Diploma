@@ -2,7 +2,6 @@ package application.service;
 
 
 import application.dao.PostDao;
-import application.dto.post.request.PostRequestDTO;
 import application.dto.post.response.PostDTO;
 import application.dto.post.response.PostResponseDTO;
 import application.model.ModerationStatus;
@@ -29,22 +28,46 @@ public class PostService {
         this.postDao = postDao;
     }
 
-    public PostResponseDTO getPosts(PostRequestDTO requestDTO) {
-        if (requestDTO.getMode().equals("recent") || requestDTO.getMode().equals("early")) {
-            Pageable pageable = PageRequest.of(requestDTO.getOffset(), requestDTO.getLimit(),
-                    (requestDTO.getMode().equals("recent") ? Sort.by("time").descending() : Sort.by("time").ascending()));
+    public PostResponseDTO getPosts(int offset, int limit, String mode) {
+        if (mode.equals("recent") || mode.equals("early")) {
+            Pageable pageable = PageRequest.of(offset, limit,
+                    (mode.equals("recent") ? Sort.by("time").descending() : Sort.by("time").ascending()));
             List<Post> posts = postDao.findAllOrderByRecent(pageable).getContent();
             return new PostResponseDTO(posts.size(), posts.stream().filter(post ->
-                            post.getModerationStatus() == ModerationStatus.ACCEPTED).map(PostDTO::new).collect(Collectors.toList()));
+                    post.getModerationStatus() == ModerationStatus.ACCEPTED).map(PostDTO::new).collect(Collectors.toList()));
         } else {
-            Pageable pageable = PageRequest.of(requestDTO.getOffset(), requestDTO.getLimit());
+            Pageable pageable = PageRequest.of(offset, limit);
             List<Post> posts;
-            if (requestDTO.getMode().equals("popular")) {
+            if (mode.equals("popular")) {
                 posts = postDao.findAllOrderByPopular(pageable).getContent();
             } else {
                 posts = postDao.findAllOrderByLikes(pageable).getContent();
             }
             return new PostResponseDTO(posts.size(), posts.stream().map(PostDTO::new).collect(Collectors.toList()));
         }
+    }
+
+    public PostResponseDTO getPostsBySearchQuery(int offset, int limit, String searchQuery) {
+        List<PostDTO> postDTOList;
+        Pageable pageable = PageRequest.of(offset, limit);
+        if (searchQuery.equals("")) {
+            postDTOList = postDao.findAll(pageable)
+                    .get()
+                    .map(PostDTO::new)
+                    .collect(Collectors.toList());
+            return new PostResponseDTO(postDTOList.size(), postDTOList);
+        } else {
+            postDTOList = postDao.findAllLikeSearchQuery(pageable, searchQuery)
+                    .get()
+                    .map(PostDTO::new)
+                    .collect(Collectors.toList());
+            return new PostResponseDTO(postDTOList.size(), postDTOList);
+        }
+    }
+
+    public PostResponseDTO getPostsByTag(int offset, int limit, String tag) {
+        Pageable pageable = PageRequest.of(offset, limit);
+            List<PostDTO> postDTOList = postDao.findAllByTag(pageable, tag).get().map(PostDTO::new).collect(Collectors.toList());
+        return new PostResponseDTO(postDTOList.size(), postDTOList);
     }
 }
