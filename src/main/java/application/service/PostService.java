@@ -12,6 +12,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,6 +55,27 @@ public class PostService {
                 postResponseDTO = new PostResponseDTO();
         }
         return postResponseDTO;
+    }
+
+    public PostResponseDTO getPostsByDate(int offset, int limit, String stringDate) throws ParseException {
+        Pageable pageable = PageRequest.of(offset, limit);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = sdf.parse(stringDate);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.HOUR, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 1);
+        Date from = calendar.getTime();
+        calendar.set(Calendar.HOUR, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        Date to = calendar.getTime();
+        List<PostDTO> postDTOList = postDao.findAllByDate(pageable, from, to)
+                .get()
+                .map(PostDTO::new)
+                .collect(Collectors.toList());
+        return new PostResponseDTO(postDTOList.size(), postDTOList);
     }
 
 

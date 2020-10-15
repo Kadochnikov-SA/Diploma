@@ -1,15 +1,15 @@
 package application.controller;
 
+import application.api.response.CalendarResponse;
 import application.dto.tag.response.TagsResponseDTO;
 import application.api.response.InitResponse;
 import application.api.response.SettingsResponse;
+import application.service.GeneralService;
 import application.service.SettingsService;
 import application.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -20,12 +20,14 @@ public class ApiGeneralController {
     private final InitResponse initResponse;
     private final SettingsService settingsService;
     private final TagService tagService;
+    private final GeneralService generalService;
 
     @Autowired
-    public ApiGeneralController(InitResponse initResponse, SettingsService settingsService, TagService tagService) {
+    public ApiGeneralController(InitResponse initResponse, SettingsService settingsService, TagService tagService, GeneralService generalService) {
         this.initResponse = initResponse;
         this.settingsService = settingsService;
         this.tagService = tagService;
+        this.generalService = generalService;
     }
 
     @GetMapping(value = "init")
@@ -42,4 +44,11 @@ public class ApiGeneralController {
     public ResponseEntity<TagsResponseDTO> getTags() {
         return ResponseEntity.ok(tagService.getTags());
     }
+
+    @GetMapping(value = "calendar")
+    @ResponseBody
+    public CalendarResponse calendar (@RequestParam(required = false, defaultValue = "2020") Integer year){
+        return generalService.getPostsByYear(year);
+    }
+
 }

@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+
 
 @RestController
 @RequestMapping("api/post")
@@ -44,5 +46,13 @@ public class ApiPostController {
                                                          @RequestParam(required = false, defaultValue = "10") Integer limit,
                                                          @RequestParam String tag) {
         return ResponseEntity.ok(postService.getPostsByTag(offset, limit, tag));
+    }
+
+    @GetMapping("byDate")
+    @ResponseBody
+    public ResponseEntity<PostResponseDTO> getPostsByDate(@RequestParam(required = false, defaultValue = "0") Integer offset,
+                                                          @RequestParam(required = false, defaultValue = "10") Integer limit,
+                                                          @RequestParam String date) throws ParseException {
+        return ResponseEntity.ok(postService.getPostsByDate(offset, limit, date));
     }
 }

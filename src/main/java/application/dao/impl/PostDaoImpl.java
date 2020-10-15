@@ -8,6 +8,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+import java.util.List;
+
 
 @Component
 public class PostDaoImpl implements PostDao {
@@ -48,6 +51,21 @@ public class PostDaoImpl implements PostDao {
     @Override
     public Page<Post> findAllByTag(Pageable pageable, String tag) {
         return postRepository.findAllByTag(pageable, tag);
+    }
+
+    @Override
+    public List<Post> findAllByYear(Date from, Date to) {
+        return postRepository.findAllByYear(from, to);
+    }
+
+    @Override
+    public List<Date> findAllPublicationDate() {
+        return postRepository.findAllPublicationDate();
+    }
+
+    @Override
+    public Page<Post> findAllByDate(Pageable pageable, Date from, Date to) {
+        return postRepository.findAllByDate(pageable, from, to);
     }
 
 }
