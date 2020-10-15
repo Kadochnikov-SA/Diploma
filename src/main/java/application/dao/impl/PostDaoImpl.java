@@ -14,18 +14,19 @@ public class PostDaoImpl implements PostDao {
 
     private final PostRepository postRepository;
 
+
     @Autowired
     public PostDaoImpl(PostRepository postRepository) {
         this.postRepository = postRepository;
     }
 
     @Override
-    public Page<Post> findAllOrderByRecent(Pageable pageable) {
+    public Page<Post> findAllOrderByTime(Pageable pageable) {
         return postRepository.findAll(pageable);
     }
 
     @Override
-    public Page<Post> findAllOrderByPopular(Pageable pageable) {
+    public Page<Post> findAllOrderByComments(Pageable pageable) {
         return postRepository.findAllOrderByComments(pageable);
     }
 

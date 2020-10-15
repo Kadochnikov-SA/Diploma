@@ -416,6 +416,14 @@ VALUES ('29', '10', 'Comment', '2020-10-10 23:59:40', '7');
 INSERT INTO blog.post_comments (id, post_id, text, time, user_id)
 VALUES ('30', '11', 'Comment', '2020-10-10 23:59:40', '8');
 
+INSERT INTO blog.global_settings (id, code, name, value)
+VALUES ('1', 'MULTIUSER_MODE', 'Многопользовательский режим', 'YES');
+INSERT INTO blog.global_settings (id, code, name, value)
+VALUES ('2', 'POST_PREMODERATION', 'Премодерация постов', 'YES');
+INSERT INTO blog.global_settings (id, code, name, value)
+VALUES ('3', 'STATISTICS_IS_PUBLIC', 'Показывать всем статистику блога', 'YES');
+
+
 
 
 

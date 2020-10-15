@@ -8,8 +8,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface PostDao {
 
-    Page<Post> findAllOrderByRecent(Pageable pageable);
-    Page<Post> findAllOrderByPopular(Pageable pageable);
+    Page<Post> findAllOrderByTime(Pageable pageable);
+    Page<Post> findAllOrderByComments(Pageable pageable);
     Page<Post> findAllOrderByLikes(Pageable pageable);
     Page<Post> findAllLikeSearchQuery(Pageable pageable, String searchQuery);
     Page<Post> findAll(Pageable pageable);
