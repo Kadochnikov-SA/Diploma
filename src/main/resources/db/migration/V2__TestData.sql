@@ -290,15 +290,15 @@ Make true if. Saw charmed numerous uncommonly relation hearted or balls against 
 
 # adding tags
 INSERT INTO blog.tags (id, name)
-VALUES ('1', 'Tag #1');
+VALUES ('1', 'Tag_1');
 INSERT INTO blog.tags (id, name)
-VALUES ('2', 'Tag #2');
+VALUES ('2', 'Tag_2');
 INSERT INTO blog.tags (id, name)
-VALUES ('3', 'Tag #3');
+VALUES ('3', 'Tag_3');
 INSERT INTO blog.tags (id, name)
-VALUES ('4', 'Tag #4');
+VALUES ('4', 'Tag_4');
 INSERT INTO blog.tags (id, name)
-VALUES ('5', 'Tag #5');
+VALUES ('5', 'Tag_5');
 
 INSERT INTO blog.tag2post (id, post_id, tag_id)
 VALUES ('1', '22', '2');
